@@ -85,3 +85,19 @@ document.writeln(`<div class="mx-auto" style="height:${spacerHeight}px;width:60%
 document.writeln(`<div><h2>SPREAD OPERATOR</h2>
   <h3>Sum of all the elements of myArray using spread (...) operator &rarr; ${addAllNumbers(...myArray)}
   </div>`);
+
+
+//////////////////////////////////////////////////////////////// S P A C E R   D I V //////////////////////////////////////////////////////////////
+document.writeln(`<div class="mx-auto" style="height:${spacerHeight}px;width:60%;"><hr style="text-align:center;background-color:orange;"></div>`);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//Array example
+let myAnotherArray = [10,20,30,40];
+//For every element of the above array, the corresponding element of the below array
+//will be multiplied by 2
+let myMappedArray = myAnotherArray.map( (value) => (value * 2) );
+document.write("Original Array &rarr; ");
+myAnotherArray.forEach( (item) => document.writeln(`${item} `) );
+document.write("<br />Mapped Array &rarr; ");
+myMappedArray.forEach((item) => document.write(`${item} `) );
