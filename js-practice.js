@@ -56,7 +56,7 @@ document.writeln(`<div class="mx-auto" style="height:${spacerHeight}px;width:60%
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-//Using for each loop
+//Using forEach loop
 document.writeln("<div class=\"mx-auto\" style=\"width:20%\">");
 document.writeln("<h2>FOREACH LOOP</h2>");
 document.writeln("<table class=\"table table-sm table-striped table-hover\"><caption>Iteration of array myArray</caption><thead><tr><th class=\"bg-info\">INDEX</th><th class=\"bg-info\">VALUE</th></tr></thead>");
