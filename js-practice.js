@@ -101,3 +101,36 @@ document.write("Original Array &rarr; ");
 myAnotherArray.forEach( (item) => document.writeln(`${item} `) );
 document.write("<br />Mapped Array &rarr; ");
 myMappedArray.forEach((item) => document.write(`${item} `) );
+
+
+//////////////////////////////////////////////////////////////// S P A C E R   D I V //////////////////////////////////////////////////////////////
+document.writeln(`<div class="mx-auto" style="height:${spacerHeight}px;width:60%;"><hr style="text-align:center;background-color:orange;"></div>`);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//Basic class definition and usage of Object.assign() to copy
+//over member data from object1 to object2
+class aClass {
+  constructor() {
+    this.varA = "ABC";
+    this.varB = "DEF";
+  }
+
+  getMemberData = () => (`<p>A is ${this.varA}, and B is ${this.varB}.</p>`);
+}
+
+let aObjA = new aClass();
+let aObjB = new aClass();
+aObjA.varA = "Arko";
+aObjA.varB = "Bhat";
+document.write(`<p>aObjA &rarr; A is ${aObjA.varA}, and B is ${aObjA.varB}.</p>`);
+Object.assign(aObjB, aObjA);
+aObjB.varA = "Khaokhaokhao";
+document.write(`<p>aObjB &rarr; A is ${aObjB.varA}, and B is ${aObjB.varB}.</p>`);
+
+//Another way to copy over object data is to use the destructing/spread operator (...)
+
+//Copy over all member data from aObjA to aObjC and then update
+//the value of varB in aObjC
+let aObjC = { ...aObjA, varB: "Paopaopao"};
+document.write(`<p>aObjC &rarr; A is ${aObjC.varA}, and B is ${aObjC.varB}.</p>`);
