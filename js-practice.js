@@ -134,3 +134,134 @@ document.write(`<p>aObjB &rarr; A is ${aObjB.varA}, and B is ${aObjB.varB}.</p>`
 //the value of varB in aObjC
 let aObjC = { ...aObjA, varB: "Paopaopao"};
 document.write(`<p>aObjC &rarr; A is ${aObjC.varA}, and B is ${aObjC.varB}.</p>`);
+
+
+//////////////////////////////////////////////////////////////// S P A C E R   D I V //////////////////////////////////////////////////////////////
+document.writeln(`<div class="mx-auto" style="height:${spacerHeight}px;width:60%;"><hr style="text-align:center;background-color:orange;"></div>`);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//Immediately invoked function expression
+var outerVar = 20;
+var res = (function() {
+  document.write("<p>This is a Immediately Invoked Function Expression (IIFE)</p>");
+  var innerVar = 30;
+  return (outerVar + innerVar);
+})();
+document.write(`Result from IIFE &rarr; ${res}`);
+
+
+//////////////////////////////////////////////////////////////// S P A C E R   D I V //////////////////////////////////////////////////////////////
+document.writeln(`<div class="mx-auto" style="height:${spacerHeight}px;width:60%;"><hr style="text-align:center;background-color:orange;"></div>`);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//Function declaration using Expression
+var varFunc;
+varFunc = function() {
+  document.write("<p>This is from varFunc()</p>");
+}
+
+//Call varFunc
+varFunc();
+
+
+//////////////////////////////////////////////////////////////// S P A C E R   D I V //////////////////////////////////////////////////////////////
+document.writeln(`<div class="mx-auto" style="height:${spacerHeight}px;width:60%;"><hr style="text-align:center;background-color:orange;"></div>`);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//Recursive Function
+//Define linked list data structure
+var linkedList = {
+  value: 1,
+  next: {
+    value: 2,
+    next: {
+      value: 3,
+      next: null
+    }
+  }
+};
+
+//Convert it to array using recursive Function
+let tArr = [];
+const arrayFromList = function(list) {
+  tArr.push(list.value);
+  if(list.next) {
+    return arrayFromList(list.next);
+  } else {
+    return tArr;
+  }
+}
+//arrayFromList(linkedList);
+document.write(`<p>${arrayFromList(linkedList)}</p>`);
+
+
+//////////////////////////////////////////////////////////////// S P A C E R   D I V //////////////////////////////////////////////////////////////
+document.writeln(`<div class="mx-auto" style="height:${spacerHeight}px;width:60%;"><hr style="text-align:center;background-color:orange;"></div>`);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//Class in JS
+class Car {
+  constructor(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+  }
+  displayInfo() {
+    //Always use this to refer to properties of the class inside methods
+    document.write(`<p>The car is a ${this.year} ${this.make} - ${this.model}</p>`);
+  }
+}
+
+let aHondaCityObject = new Car("Honda", "City", 2005);
+aHondaCityObject.displayInfo();
+
+//Another way to define class on the go
+let justAnotherCarObject = new class {
+  displayInfo()  {
+    document.write(`<p>This is just a car. I have no idea what are its make, model and year!</p>`);
+  }
+};
+justAnotherCarObject.displayInfo();
+console.log(justAnotherCarObject.toString());
+
+
+//////////////////////////////////////////////////////////////// S P A C E R   D I V //////////////////////////////////////////////////////////////
+document.writeln(`<div class="mx-auto" style="height:${spacerHeight}px;width:60%;"><hr style="text-align:center;background-color:orange;"></div>`);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//Getter, setter and inheritence
+class HondaCar extends Car {
+  constructor(make, model, year, carid) {
+    super(make, model, year);
+    this.hondaCarId = carid;
+  }
+
+  get carId() {
+    if(!this.hondaCarId) {
+      return (this.year.substring(2) + this.make.substring(0,3) + this.model.substring(0,3)).toUpperCase();
+    } else {
+      return this.hondaCarId.toUpperCase();
+    }
+  }
+
+  set carId(value) {
+    this.hondaCarId = value;
+  }
+
+  displayInfo() {
+    super.displayInfo();
+    document.write(`<p>The car ID of this Honda car is: ${this.carId}</p>`);
+  }
+}
+
+let hCity = new HondaCar("Honda", "City", "2005");
+let anotherHCity = new HondaCar("Honda", "City", "2010", "IUFEUJF663UH");
+hCity.displayInfo();
+anotherHCity.displayInfo();
+anotherHCity.carId = "HHDJAKAKAKD848592";
+anotherHCity.displayInfo();
