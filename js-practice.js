@@ -265,3 +265,4 @@ hCity.displayInfo();
 anotherHCity.displayInfo();
 anotherHCity.carId = "HHDJAKAKAKD848592";
 anotherHCity.displayInfo();
+console.log(`Is anotherHCity an instance of HondaCar? [${anotherHCity instanceof HondaCar}]`);
