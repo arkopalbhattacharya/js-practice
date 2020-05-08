@@ -266,3 +266,147 @@ anotherHCity.displayInfo();
 anotherHCity.carId = "HHDJAKAKAKD848592";
 anotherHCity.displayInfo();
 console.log(`Is anotherHCity an instance of HondaCar? [${anotherHCity instanceof HondaCar}]`);
+
+
+//////////////////////////////////////////////////////////////// S P A C E R   D I V //////////////////////////////////////////////////////////////
+document.writeln(`<div class="mx-auto" style="height:${spacerHeight}px;width:60%;"><hr style="text-align:center;background-color:orange;"></div>`);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//Try catch error
+
+//Define binary expression
+let binary = {
+  zero: 0,
+  one: 1,
+  getBool(value) {
+    if(value === null || value === undefined){
+      throw new Error(`[value not set: ${value}] | [ERROR] [Binary value should either be zero (0) or one (1)]`);
+    } else if(!value in [0,1])  {
+      throw new Error(`[value set to ${value}] | [ERROR] [Binary value should either be zero (0) or one (1)]`);
+    } else {
+      return Boolean(value);
+    }
+  }
+};
+
+let boolValueTest_one = true, boolValueTest_two = false, boolValueTest_three = null, boolValueTest_four, boolValueTest_five = "1", boolValueTest_six = undefined;
+try {
+  document.write(`<p>Showing binary zero &rarr; ${binary.zero}</p>`);
+} catch(error) {
+  console.error(`ERROR: ${error}`);
+}
+try {
+  document.write(`<p>Showing binary one &rarr; ${binary.one}</p>`);
+} catch(error) {
+  console.error(`ERROR: ${error}`);
+}
+try {
+  document.write(`<p>boolValueTest_one &rarr; ${binary.getBool(boolValueTest_one)}</p>`);
+} catch(error) {
+  console.error(`ERROR [from boolValueTest_one]: ${error}`);
+}
+try {
+  document.write(`<p>boolValueTest_two &rarr; ${binary.getBool(boolValueTest_two)}</p>`);
+} catch(error) {
+  console.error(`ERROR [from boolValueTest_two]: ${error}`);
+}
+try {
+  document.write(`<p>boolValueTest_three &rarr; ${binary.getBool(boolValueTest_three)}</p>`);
+} catch(error) {
+  console.error(`ERROR [from boolValueTest_three]: ${error}`);
+}
+try {
+  document.write(`<p>boolValueTest_four &rarr; ${binary.getBool(boolValueTest_four)}</p>`);
+} catch(error) {
+  console.error(`ERROR [from boolValueTest_four]: ${error}`);
+}
+try {
+  document.write(`<p>boolValueTest_five &rarr; ${binary.getBool(boolValueTest_five)}</p>`);
+} catch(error) {
+  console.error(`ERROR [from boolValueTest_five]: ${error}`);
+}
+try {
+  document.write(`<p>boolValueTest_six &rarr; ${binary.getBool(boolValueTest_six)}</p>`);
+} catch(error) {
+  console.error(`ERROR [from boolValueTest_six]: ${error} | [ERROR CALL STACK] ${error.stack}`);
+}
+
+
+//////////////////////////////////////////////////////////////// S P A C E R   D I V //////////////////////////////////////////////////////////////
+document.writeln(`<div class="mx-auto" style="height:${spacerHeight}px;width:60%;"><hr style="text-align:center;background-color:orange;"></div>`);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//Custom error
+
+//Define the custom error class
+class NotANumberError extends Error {}
+//Define the array that will contain the values
+//against which the check will be done
+let guessArray = [12,432,57,46,867,21];
+//function for the guessing game
+function guessNumberGame(number) {
+  if(isNaN(number)) {
+    throw new NotANumberError(`${number} is not a number`);
+  } else if(guessArray.includes(number)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+try {
+  document.write(`<p>Is 2 in the array? &rarr; ${guessNumberGame(2)}</p>`);
+} catch(e) {
+  if(e instanceof NotANumberError) {
+    console.error(`NOT A NUMBER ERROR [from check for 2]: ${e}`);
+  } else {
+    console.error(`OTHER ERROR [from check for 2]: ${e}`);
+  }
+}
+try {
+  document.write(`<p>Is "ARKO" in the array? &rarr; ${guessNumberGame("ARKO")}</p>`);
+} catch(e) {
+  if(e instanceof NotANumberError) {
+    console.error(`NOT A NUMBER ERROR [from check for "ARKO"]: ${e}`);
+  } else {
+    console.error(`OTHER ERROR [from check for "ARKO"]: ${e}`);
+  }
+}
+try {
+  document.write(`<p>Is 432 in the array? &rarr; ${guessNumberGame(432)}</p>`);
+} catch(e) {
+  if(e instanceof NotANumberError) {
+    console.error(`NOT A NUMBER ERROR [from check for 432]: ${e}`);
+  } else {
+    console.error(`OTHER ERROR [from check for 432]: ${e}`);
+  }
+}
+try {
+  document.write(`<p>Is "57AB" in the array? &rarr; ${guessNumberGame("57AB")}</p>`);
+} catch(e) {
+  if(e instanceof NotANumberError) {
+    console.error(`NOT A NUMBER ERROR [from check for "57AB"]: ${e}`);
+  } else {
+    console.error(`OTHER ERROR [from check for "57AB"]: ${e}`);
+  }
+}
+try {
+  document.write(`<p>Is 0/0 in the array? &rarr; ${guessNumberGame(0/0)}</p>`);
+} catch(e) {
+  if(e instanceof NotANumberError) {
+    console.error(`NOT A NUMBER ERROR [from check for 0/0]: ${e}`);
+  } else {
+    console.error(`OTHER ERROR [from check for 0/0]: ${e}`);
+  }
+}
+try {
+  document111.write111(`<p>Is 0/0 in the array? &rarr; ${guessNumberGame(33)}</p>`);
+} catch(e) {
+  if(e instanceof NotANumberError) {
+    console.error(`NOT A NUMBER ERROR [from check for 33]: ${e}`);
+  } else {
+    console.error(`OTHER ERROR [from check for 33]: ${e}`);
+  }
+}
